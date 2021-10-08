@@ -3,13 +3,15 @@
   "author": "TIC TEAM",
   "type": "module",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^4.1.3",
+    "nodemon": "^2.0.13"
   },
   "name": "pruebabackend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
