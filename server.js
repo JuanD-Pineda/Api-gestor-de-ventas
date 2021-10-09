@@ -1,19 +1,12 @@
 import Express from 'express';
+import Cors from 'cors';
+import { conectarBD, getDB } from './db/conn.js';
 
 const app = Express();
 
 app.use(Express.json());
+app.use(Cors());
 
-app.get('/vehiculos', (req, res) => {
-  console.log('alguien hizo get en la ruta /vehiculos');
-  const vehiculos = [
-    { nombre: 'corolla', marca: 'toyota', modelo: '2014' },
-    { nombre: 'yaris', marca: 'toyota', modelo: '2020' },
-    { nombre: 'fiesta', marca: 'ford', modelo: '2020' },
-    { nombre: 'cx30', marca: 'mazda', modelo: '2020' },
-  ];
-  res.send(vehiculos);
-});
 
 app.post('/vehiculos/nuevo', (req, res) => {
   console.log(req);
@@ -35,6 +28,10 @@ app.post('/vehiculos/nuevo', (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('escuchando puerto 5000');
-});
+const main = ()=>{
+  return app.listen(process.env.port,()=>{
+    console.log(`escuchando puerto ${process.env.port}`)
+  })
+}
+
+conectarBD(main);
