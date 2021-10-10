@@ -2,7 +2,6 @@ import { getDB } from "../../db/conn.js";
 
 const crearProducto = async (datosProductos, callback) => {
   console.log(datosProductos);
-  // datosProductos = req.body;
   console.log("llaves: ", Object.keys(datosProductos));
   if (
     Object.keys(datosProductos).includes("nombre") &&
