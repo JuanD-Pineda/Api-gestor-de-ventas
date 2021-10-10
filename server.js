@@ -1,40 +1,21 @@
-import Express from 'express';
+import Express from "express";
+import Cors from "cors";
+import dotenv from "dotenv";
+import rutasProducto from "./routes/productos.js";
+import { conectarBD } from "./db/conn.js";
 
 const app = Express();
+dotenv.config({ path: "./.env" });
 
 app.use(Express.json());
+app.use(Cors());
+app.use(rutasProducto);
 
-app.get('/vehiculos', (req, res) => {
-  console.log('alguien hizo get en la ruta /vehiculos');
-  const vehiculos = [
-    { nombre: 'corolla', marca: 'toyota', modelo: '2014' },
-    { nombre: 'yaris', marca: 'toyota', modelo: '2020' },
-    { nombre: 'fiesta', marca: 'ford', modelo: '2020' },
-    { nombre: 'cx30', marca: 'mazda', modelo: '2020' },
-  ];
-  res.send(vehiculos);
-});
 
-app.post('/vehiculos/nuevo', (req, res) => {
-  console.log(req);
-  const datosVehiculo = req.body;
-  console.log('llaves: ', Object.keys(datosVehiculo));
-  try {
-    if (
-      Object.keys(datosVehiculo).includes('name') &&
-      Object.keys(datosVehiculo).includes('brand') &&
-      Object.keys(datosVehiculo).includes('model')
-    ) {
-      // implementar código para crear vehículo en la BD
-      res.sendStatus(200);
-    } else {
-      res.sendStatus(500);
-    }
-  } catch {
-    res.sendStatus(500);
-  }
-});
+const main = () => {
+  return app.listen(process.env.port, () => {
+    console.log(`escuchando puerto ${process.env.port}`);
+  });
+};
 
-app.listen(5000, () => {
-  console.log('escuchando puerto 5000');
-});
+conectarBD(main);
