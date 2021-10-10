@@ -18,4 +18,10 @@ const crearProducto = async (datosProductos, callback) => {
   }
 };
 
-export default crearProducto;
+const getAllProducts = async (callback) => {
+  const baseDeDatos = getDB();
+  await baseDeDatos.collection('productos').find().limit(50).toArray(callback);
+};
+
+
+export {crearProducto, getAllProducts} ;
