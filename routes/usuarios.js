@@ -11,11 +11,11 @@ const genercCallback = (res) => (err, result) => {
   }
 };
 
-rutasUsuario.route("/usuarios/nuevo/").post((req, res) => {
+rutasUsuario.route("/usuarios/crear/").post((req, res) => {
   crearUsuario(req.body, genercCallback(res));
 });
 
-rutasUsuario.route('/usuarios/ver').get((req, res) => {
+rutasUsuario.route('/usuarios/listar').get((req, res) => {
   getAllUsers(genercCallback(res));
 });
 
