@@ -12,6 +12,7 @@ const crearUsuario = async (datosUsuarios, callback) => {
     Object.keys(datosUsuarios).includes("estado")
   ) {
     const baseDeDatos = getDB();
+    // implementar código para crear usuario en la BD
     await baseDeDatos.collection('usuarios').insertOne(datosUsuarios, callback);
   } else {
     return "error";

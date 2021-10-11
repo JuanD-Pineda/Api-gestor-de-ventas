@@ -1,5 +1,4 @@
 import Express from "express";
-//import {crearProducto,getAllProducts} from "../controllers/productos/controller.js";
 import { crearUsuario,getAllUsers } from "../controllers/usuarios/controller.js";
 const rutasUsuario = Express.Router();
 
@@ -20,4 +19,4 @@ rutasUsuario.route('/usuarios/listar').get((req, res) => {
 });
 
 
-export default rutasUsuario;
+export default rutasUsuario; 
