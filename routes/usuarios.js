@@ -18,5 +18,8 @@ rutasUsuario.route('/usuarios/listar').get((req, res) => {
   getAllUsers(genercCallback(res));
 });
 
+rutasUsuario.route('/usuarios/:id').patch((req, res) => {
+  editarUsuario(req.params.id, req.body, genercCallback(res));
+});
 
 export default rutasUsuario; 

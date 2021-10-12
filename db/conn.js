@@ -18,7 +18,7 @@ const conectarBD=(callback) => {
 		  console.error('Error conectando a la base de datos');
 		  return 'error';
 		}
-		baseDeDatos = db.db('Tic-team');
+		baseDeDatos = db.db('tic-team');
 		console.log('baseDeDatos exitosa');
 	  });return callback();
 }

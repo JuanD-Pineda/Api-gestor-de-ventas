@@ -11,7 +11,7 @@ const genercCallback = (res) => (err, result) => {
   }
 };
 
-rutasProducto.route("/productos/nuevo/").post((req, res) => {
+rutasProducto.route("/productos/nuevo").post((req, res) => {
   crearProducto(req.body, genercCallback(res));
 });
 
