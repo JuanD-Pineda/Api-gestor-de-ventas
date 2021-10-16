@@ -1,6 +1,5 @@
 import { getDB } from "../../db/conn.js";
-import { ObjectId } from 'mongodb';
-
+import { ObjectId } from "mongodb";
 
 const crearProducto = async (datosProductos, callback) => {
   console.log(datosProductos);
@@ -14,7 +13,9 @@ const crearProducto = async (datosProductos, callback) => {
   ) {
     const baseDeDatos = getDB();
     // implementar código para crear vehículo en la BD
-    await baseDeDatos.collection('productos').insertOne(datosProductos, callback);
+    await baseDeDatos
+      .collection("productos")
+      .insertOne(datosProductos, callback);
   } else {
     return "error";
   }
@@ -22,7 +23,11 @@ const crearProducto = async (datosProductos, callback) => {
 
 const getAllProducts = async (callback) => {
   const baseDeDatos = getDB();
-  await baseDeDatos.collection('productos').find({}).limit(50).toArray(callback);
+  await baseDeDatos
+    .collection("productos")
+    .find({})
+    .limit(50)
+    .toArray(callback);
 };
 
 const editarProducto = async (id, edicion, callback) => {
@@ -32,8 +37,13 @@ const editarProducto = async (id, edicion, callback) => {
   };
   const baseDeDatos = getDB();
   await baseDeDatos
-    .collection('productos')
-    .findOneAndUpdate(filtroProducto, operacion, { upsert: true, returnOriginal: true }, callback);
+    .collection("productos")
+    .findOneAndUpdate(
+      filtroProducto,
+      operacion,
+      { upsert: true, returnOriginal: true },
+      callback
+    );
 };
 
-export {crearProducto, getAllProducts,editarProducto} ;
+export { crearProducto, getAllProducts, editarProducto };
