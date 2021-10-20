@@ -2,7 +2,7 @@ import { getDB } from "../../db/conn.js";
 import { ObjectId } from "mongodb";
 
 const crearVenta = async (datosVentas, callback) => {
-  console.log(datosUsuarios);
+  console.log(datosVentas);
   console.log("llaves: ", Object.keys(datosVentas));
   if (
     Object.keys(datosVentas).includes("valorTotal") &&
