@@ -1,13 +1,13 @@
 import { getDB } from "../../db/conn.js";
 import { ObjectId } from "mongodb";
 
-const crearUsuario = async (datosUsuario, callback) => {
+const crearUsuario = async (datosUsuarios, callback) => {
   console.log(datosUsuarios);
-  console.log("llaves: ", Object.keys(datosProductos));
+  console.log("llaves: ", Object.keys(datosUsuarios));
   if (
     Object.keys(datosUsuarios).includes("nombre") &&
     Object.keys(datosUsuarios).includes("apellido") &&
-    Object.keys(datoUsuarios).includes("cedula") &&
+    Object.keys(datosUsuarios).includes("cedula") &&
     Object.keys(datosUsuarios).includes("email") &&
     Object.keys(datosUsuarios).includes("estado") &&
     Object.keys(datosUsuarios).includes("rol")
