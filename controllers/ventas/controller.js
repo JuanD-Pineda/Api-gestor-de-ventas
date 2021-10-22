@@ -1,3 +1,4 @@
+
 import { getDB } from "../../db/conn.js";
 
 
@@ -20,3 +21,4 @@ const crearVenta = async (datosVentas, callback) => {
 };
 
 export default crearVenta;
+

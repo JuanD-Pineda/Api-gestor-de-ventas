@@ -1,5 +1,5 @@
 import Express from "express";
-import { crearUsuario,getAllUsers } from "../controllers/usuarios/controller.js";
+import { crearUsuario,editarUsuario, getAllUsers } from "../controllers/usuarios/controller.js";
 const rutasUsuario = Express.Router();
 
 const genercCallback = (res) => (err, result) => {
