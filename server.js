@@ -2,12 +2,11 @@ import Express from "express";
 import Cors from "cors";
 import dotenv from "dotenv";
 import rutasProducto from "./routes/productos.js";
-import rutasVentas from "./routes/ventas.js";
+import rutasVentas2 from "./routes/ventas2.js";
 import rutasUsuario from "./routes/usuarios.js";
 import { conectarBD } from "./db/conn.js";
 import jwt from 'express-jwt';
 import jwks from 'jwks-rsa';
-
 
 const app = Express();
 dotenv.config({ path: "./.env" });
@@ -17,7 +16,7 @@ app.use(Express.json());
 app.use(Cors());
 app.use(rutasProducto);
 app.use(rutasUsuario);
-app.use(rutasVentas);
+app.use(rutasVentas2);
 // app.use(jwtCheck);
 
 
