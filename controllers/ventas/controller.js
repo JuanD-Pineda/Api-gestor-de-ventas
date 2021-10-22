@@ -7,13 +7,14 @@ const crearVenta = async (datosVentas, callback) => {
   console.log("llaves: ", Object.keys(datosVentas));
   if (
     Object.keys(datosVentas).includes("vendedor") &&
-    Object.keys(datosVentas).includes("producto") &&
-    Object.keys(datosVentas).includes("cantidad")
+    Object.keys(datosVentas).includes("total_venta") &&
+    Object.keys(datosVentas).includes("productos") &&
+    Object.keys(datosVentas).includes("documento")
   ) {
     const baseDeDatos = getDB();
-    // implementar código para crear vehículo en la BD
     await baseDeDatos.collection('ventas').insertOne(datosVentas, callback);
   } else {
+    console.log("errorrrrrr")
     return "error";
   }
 };
