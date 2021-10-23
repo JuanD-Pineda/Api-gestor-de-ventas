@@ -1,5 +1,5 @@
 import Express from "express";
-import {crearProducto,getAllProducts,editarProducto} from "../controllers/productos/controller.js";
+import {crearProducto,getAllProducts,editarProducto,eliminarProducto} from "../controllers/productos/controller.js";
 
 const rutasProducto = Express.Router();
 
@@ -21,6 +21,11 @@ rutasProducto.route('/productos/ver').get((req, res) => {
 
 rutasProducto.route('/productos/:id').patch((req, res) => {
   editarProducto(req.params.id, req.body, genercCallback(res));
+});
+
+
+rutasProducto.route('/productos/:id').delete((req, res) => {
+  eliminarProducto(req.params.id, genercCallback(res));
 });
 
 
