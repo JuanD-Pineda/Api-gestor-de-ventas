@@ -1,5 +1,5 @@
-
 import { getDB } from "../../db/conn.js";
+import { ObjectId } from "mongodb";
 
 
 
@@ -45,4 +45,6 @@ const editarVentas = async (id, edicion, callback) => {
     );
 };
 
+
 export { crearVenta, getAllVentas, editarVentas };
+
