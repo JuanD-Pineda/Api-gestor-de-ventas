@@ -9,7 +9,8 @@ import jwt from "express-jwt";
 import jwks from "jwks-rsa";
 
 dotenv.config({ path: "./.env" });
-const port = process.env.PORT || 4000;
+
+const port = process.env.port || 4000;
 const app = Express();
 app.use(Express.json());
 app.use(Cors());
