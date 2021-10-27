@@ -45,5 +45,6 @@ const editarVentas = async (id, edicion, callback) => {
     );
 };
 
+
 export { crearVenta, getAllVentas, editarVentas };
 
