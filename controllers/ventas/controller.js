@@ -45,6 +45,12 @@ const editarVentas = async (id, edicion, callback) => {
     );
 };
 
+const eliminarVentas=async(id,callback)=>{
+  const filtroVentas ={ _id:new ObjectId(id)}
+  const baseDeDatos = getDB();
+  await baseDeDatos.collection('ventas').deleteOne(filtroVentas, callback);
+};
 
-export { crearVenta, getAllVentas, editarVentas };
+
+export { crearVenta, getAllVentas, editarVentas,eliminarVentas };
 
