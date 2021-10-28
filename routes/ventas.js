@@ -4,6 +4,7 @@ import {
   crearVenta,
   editarVentas,
   getAllVentas,
+  eliminarVentas
 } from "../controllers/ventas/controller.js";
 
 
@@ -28,6 +29,10 @@ rutasVentas.route("/ventas/listar").get((req, res) => {
 
 rutasVentas.route("/ventas/:id").patch((req, res) => {
   editarVentas(req.params.id, req.body, genercCallback(res));
+});
+
+rutasVentas.route("/ventas/:id").delete((req, res) => {
+  eliminarVentas(req.params.id, genercCallback(res));
 });
 
 export default rutasVentas;
